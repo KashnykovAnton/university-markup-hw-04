@@ -113,8 +113,11 @@ button {
 
 /* ============= PAGE HEADER ============= */
 .header {
-  border-bottom: 1px solid var(--accent);
   background: var(--white-background);
+  border-bottom: 1px solid var(--accent);
+  box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 2px 1px 0px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -201,7 +204,7 @@ button {
 .current::after {
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -1px;
   content: "";
   width: 100%;
   height: 4px;
@@ -212,6 +215,7 @@ button {
 
 /* ================ HERO ================ */
 .hero {
+  max-width: 1440px;
   padding-top: 188px;
   padding-bottom: 188px;
   background-image: linear-gradient(
@@ -219,6 +223,8 @@ button {
       rgba(46, 47, 66, 0.7)
     ),
     url("../images/hero/background-img.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 
@@ -275,6 +281,16 @@ button {
   flex-basis: calc((100% - 72px) / 4);
 }
 
+.benefits-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 112px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background: var(--light);
+}
+
 .benefits-item-title {
   margin-bottom: 8px;
 }
@@ -315,17 +331,16 @@ button {
 }
 
 .team-card {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex-basis: calc((100% - 72px) / 4);
   background: var(--white-background);
   border-radius: 0px 0px 4px 4px;
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
-}
-
-.team-card:hover .social-icons-link,
-.team-card:focus .social-icons-link {
-  background-color: var(--pressed-state);
 }
 
 .team-card-img {
@@ -335,7 +350,13 @@ button {
 }
 
 .team-card-thumb {
-  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  width: 232px;
+  padding: 32px 0;
 }
 
 .team-card-title {
@@ -348,6 +369,7 @@ button {
 
 .social-icons-list {
   display: flex;
+  justify-content: center;
   gap: 24px;
 }
 
@@ -368,8 +390,18 @@ button {
   transition: background-color var(--transition-effect);
 }
 
+.team-card:hover .social-icons-link,
+.team-card:focus .social-icons-link {
+  background-color: var(--pressed-state);
+}
+
+.social-icons-link:hover,
+.social-icons-link:focus {
+  background-color: var(--pressed-state);
+}
+
 .social-icon {
-  fill: var(--social-link-color);
+  fill: var(--light);
 }
 /* ================ /TEAM ================ */
 
@@ -400,7 +432,8 @@ button {
   color: var(--sublle-text);
   border: 1px solid var(--sublle-text);
   border-radius: 4px;
-  transition: border var(--transition-effect), color var(--transition-effect);
+  transition: border-color var(--transition-effect),
+    color var(--transition-effect);
 }
 
 .customer-icon {
@@ -409,13 +442,13 @@ button {
 }
 
 .customer-item:hover .customer-link,
-customer-item:focus .customer-link {
-  border: 1px solid var(--pressed-state);
+.customer-item:focus .customer-link {
+  border-color: var(--pressed-state);
   color: var(--pressed-state);
 }
 
 .customer-item:hover .customer-icon,
-customer-item:focus .customer-icon {
+.customer-item:focus .customer-icon {
   fill: currentColor;
 }
 /* ================ /CUSTOMERS ================ */
@@ -428,11 +461,12 @@ customer-item:focus .customer-icon {
 
 .footer-container {
   display: flex;
-  gap: 120px;
+  align-items: baseline;
 }
 
 .footer-left {
   width: 264px;
+  margin-right: 120px;
 }
 
 .footer-logo {
@@ -465,7 +499,10 @@ customer-item:focus .customer-icon {
   flex-basis: calc((100% - 48px) / 4);
 }
 
-.footer-social-item:hover .footer-social-link,
+.footer-social-item:hover .footer-social-link {
+  background-color: var(--success);
+}
+
 .footer-social-item:focus .footer-social-link {
   background-color: var(--success);
 }
@@ -496,7 +533,7 @@ customer-item:focus .customer-icon {
   background-color: var(--light);
   border: 1px solid var(--accent);
   border-radius: 4px;
-  transition: border var(--transition-effect),
+  transition: border-color var(--transition-effect),
     background-color var(--transition-effect), color var(--transition-effect),
     box-shadow var(--transition-effect);
 }
@@ -505,7 +542,7 @@ customer-item:focus .customer-icon {
 .filter-button:focus {
   color: var(--white-background);
   background-color: var(--pressed-state);
-  border: 1px solid transparent;
+  border-color: transparent;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
     0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
@@ -525,6 +562,11 @@ customer-item:focus .customer-icon {
   transform: box-shadow var(--transition-effect);
 }
 
+.project-card-link {
+  display: block;
+  transition: box-shadow var(--transition-effect);
+}
+
 .project-card-img {
   width: 100%;
   height: 100%;
@@ -542,9 +584,10 @@ customer-item:focus .customer-icon {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 63px 24px;
-  font-size: 18px;
-  line-height: 1.56;
+  padding: 40px 32px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.32px;
   color: var(--light);
   background-color: var(--primary-brand);
   transform: translateY(100%);
@@ -567,8 +610,8 @@ customer-item:focus .customer-icon {
   margin-bottom: 8px;
 }
 
-.project-card:hover,
-.project-card:focus {
+.project-card:hover .project-card-link,
+.project-card:focus .project-card-link {
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
@@ -591,7 +634,8 @@ customer-item:focus .customer-icon {
   width: 100%;
   height: 100%;
   background-color: var(--modal-overlay);
-  transition: opacity var(--transition-effect);
+  transition: opacity var(--transition-effect),
+    visibility var(--transition-effect);
 }
 
 .modal {
@@ -600,7 +644,7 @@ customer-item:focus .customer-icon {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   background-color: var(--modal-background);
   border-radius: 4px;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
@@ -617,18 +661,22 @@ customer-item:focus .customer-icon {
   align-items: center;
   width: 24px;
   height: 24px;
+  padding: 0;
   border-radius: 50%;
-  border: 1px solid var(--accent);
-  background-color: #0000001a;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--accent);
+  transition: background-color var(--transition-effect),
+    border var(--transition-effect);
 }
 
 .button-close .icon {
   fill: var(--dark);
+  transition: fill var(--transition-effect);
 }
 
 .button-close:hover,
 .button-close:focus {
-  border: 1px solid var(--pressed-state);
+  border: none;
   background-color: var(--pressed-state);
 }
 
