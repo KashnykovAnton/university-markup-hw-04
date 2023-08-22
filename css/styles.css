@@ -499,11 +499,8 @@ button {
   flex-basis: calc((100% - 48px) / 4);
 }
 
-.footer-social-item:hover .footer-social-link {
-  background-color: var(--success);
-}
-
-.footer-social-item:focus .footer-social-link {
+.footer-social-link:hover,
+.footer-social-link:focus {
   background-color: var(--success);
 }
 /* ================ /FOOTER ================ */
@@ -594,8 +591,8 @@ button {
   transition: transform var(--transition-effect);
 }
 
-.project-card:hover .card-overlay,
-.project-card:focus .card-overlay {
+.project-card-link:hover .card-overlay,
+.project-card-link:focus .card-overlay {
   transform: translateY(0%);
 }
 
@@ -610,8 +607,8 @@ button {
   margin-bottom: 8px;
 }
 
-.project-card:hover .project-card-link,
-.project-card:focus .project-card-link {
+.project-card-link:hover,
+.project-card-link:focus {
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
