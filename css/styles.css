@@ -441,8 +441,8 @@ button {
   transition: fill var(--transition-effect);
 }
 
-.customer-item:hover .customer-link,
-.customer-item:focus .customer-link {
+.customer-link:hover,
+.customer-link:focus {
   border-color: var(--pressed-state);
   color: var(--pressed-state);
 }
